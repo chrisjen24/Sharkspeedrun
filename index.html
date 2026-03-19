@@ -424,25 +424,7 @@
     </div>
   </div>
 
-  <!-- Setup note -->
-  <div class="setup-note">
-    <strong>⚙ Google Sheets Setup — Complete Before Going Live</strong>
-    1. Create a new <strong>Google Sheet</strong>.<br>
-    2. Go to <strong>Extensions → Apps Script</strong>, paste the code below, and save.<br>
-    3. Click <strong>Deploy → New deployment → Web App</strong>. Set access to <strong>Anyone</strong>.<br>
-    4. Copy the Web App URL and replace <span class="inline-code">YOUR_APPS_SCRIPT_URL</span> in this file's &lt;script&gt; block.
-    <code>function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var data  = JSON.parse(e.postData.contents);
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(['Timestamp', 'Character Name', 'Combat Power', 'Class']);
-  }
-  sheet.appendRow([new Date(), data.charName, data.combatPower, data.charClass]);
-  return ContentService
-    .createTextOutput(JSON.stringify({ result: 'success' }))
-    .setMimeType(ContentService.MimeType.JSON);
-}</code>
-  </div>
+
 
 </div>
 
